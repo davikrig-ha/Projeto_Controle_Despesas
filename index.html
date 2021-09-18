@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <h2>Controle de Despesas</h2>
+    <h2 class="titulo">Controle de Despesas</h2>
     
     <div class="container"><!--inicio container principal-->
         <h4>Saldo Atual</h4>
@@ -27,7 +27,7 @@
 
         </div>
 
-        <h2>Transações</h2>
+        <h2 class="titulo">Transações</h2>
 
         <ul id="transactions" class="transactions">
             <li>Coffee</li>
@@ -35,23 +35,25 @@
             <li>Milk</li>
         </ul>
     
-        <h3>Adicionar Transação</h3>
+        <h3 class="titulo">Adicionar Transação</h3>
     
-        <form action="">
+        <form id="form">
     
-         <div>
+         <div class="form-control">
              <label for="text">Nome</label>
-             <input type="text">
+             <input autofocus type="text" id="text" placeholder="Nome da Transação">
          </div>
     
-         <div>
-             <label for="text">Valor</label>
-             <input type="text">
+         <div class="form-control">
+             <label for="amount">Valor <br />
+             <small>(negativo - despesas, positivo - receitas)</small>
+            </label>
+             <input type="number" id="amount" placeholder="Valor da Transação">
          </div>
     
         </form>
     
-        <button>Adicionar</button>
+        <button class="btn">Adicionar</button>
 
 
     </div><!--fim container principal-->
