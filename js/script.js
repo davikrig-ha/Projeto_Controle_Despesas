@@ -1,3 +1,7 @@
+const transactionsUl = document.querySelector('transactions')
+
+
+
 const dummyTransactions = [
     {id : 1, name : 'Bolo de brigadeiro', amount: -20},
     {id : 2, name : 'Salario', amount: 30},
