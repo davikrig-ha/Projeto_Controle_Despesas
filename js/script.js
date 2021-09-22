@@ -6,7 +6,7 @@ const dummyTransactions = [
 ]
 
 const addTransactionIntoDom = transaction => {
-    const operator = transaction.amount < 0 ? '-' : '+' 
+    const operator = transaction.amount < 0 ? 'minus' : 'plus'; 
 
     console.log(operator);
 }
