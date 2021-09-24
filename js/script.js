@@ -12,11 +12,7 @@ const inputTransactionAmount = document.querySelector('#amount');
 
 
 const dummyTransactions = [
-    {id : 1, name : 'Bolo de brigadeiro', amount: -20},
-    {id : 2, name : 'Salario', amount: 30},
-    {id : 4, name : 'Bolo de Limao', amount: -20},
-    {id : 5, name : 'Violao', amount: 150},
-    {id : 6, name : 'Guitarra', amount: 200}
+    
 ]
 
 const addTransactionIntoDom = transaction => {
@@ -36,7 +32,7 @@ const addTransactionIntoDom = transaction => {
 
 const updateBalanceValues = () => {
 
-    //atualiza os valores do objeto
+    //atualiza os valores de receita, despesa e saldo
 
     const transactionAmounts = dummyTransactions.map(transaction => transaction.amount);
 
@@ -56,6 +52,7 @@ const updateBalanceValues = () => {
 //preenche a pagina
 
 const init = () =>{
+    transactionsUl.innerHTML = '';
     dummyTransactions.forEach(addTransactionIntoDom);
     updateBalanceValues();
 
@@ -89,5 +86,14 @@ form.addEventListener('submit', event => {
         amount: Number(transactionAmount)
       }    
 
+      dummyTransactions.push(transaction);
+      init();
+      updateLocalStorage();
+      transactionName.value = '';
+      transactionAmount.value = '';
+
+        //Limpa os inputs
+     transactionName.value = ''
+     transactionAmount.value = ''
 
 });
