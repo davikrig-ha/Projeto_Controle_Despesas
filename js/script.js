@@ -10,10 +10,18 @@ const inputTransactionName = document.querySelector('#text');
 
 const inputTransactionAmount = document.querySelector('#amount'); 
 
+const formulario = document.querySelector('#form');
 
-const dummyTransactions = [
-    
+let dummyTransactions = [
+ 
 ]
+
+ // metodos para remover uma transacao da lista
+const removeTransaction = ID => {
+    dummyTransactions = dummyTransactions.filter(transaction => transaction.id !== ID);
+   
+    init();
+}
 
 const addTransactionIntoDom = transaction => {
     const operator = transaction.amount < 0 ? '-' : '+';
@@ -24,7 +32,7 @@ const addTransactionIntoDom = transaction => {
 
     li.innerHTML = `
     ${transaction.name} <span> ${operator} R$ ${amountWithoutOperator} </span> 
-    <button class="delete-btn">x</button>
+    <button class="delete-btn" onClick="removeTransaction(${transaction.id})">x</button>
     `
 
     transactionsUl.append(li);
@@ -78,7 +86,9 @@ form.addEventListener('submit', event => {
     if (transactionName === '' || transactionAmount === '')
     { alert('Por favor, Informe os valores e o nome da transação!'); 
     return}
-    
+
+
+
     // Cria o objeto
     const transaction = { 
         id: generateID(), 
@@ -88,12 +98,15 @@ form.addEventListener('submit', event => {
 
       dummyTransactions.push(transaction);
       init();
-      updateLocalStorage();
+      
       transactionName.value = '';
       transactionAmount.value = '';
+
 
         //Limpa os inputs
      transactionName.value = ''
      transactionAmount.value = ''
 
 });
+
+   
